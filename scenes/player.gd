@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const TILE_SIZE = 10
+const TILE_SIZE = 16
 
 func _unhandled_input(event: InputEvent) -> void:
 	var direction := Vector2.ZERO
