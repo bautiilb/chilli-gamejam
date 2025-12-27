@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyv4hqej22qif"]
+
+[ext_resource type="Texture2D" uid="uid://cnck146mf14iq" path="res://assets/sprites/pelota-verde.png" id="1_hm2m6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npxgk"]
+size = Vector2(12.5, 11.5)
+
+[node name="Pelota" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.7881393e-06, 1.4901161e-07)
+scale = Vector2(0.033663724, 0.03611111)
+texture = ExtResource("1_hm2m6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_npxgk")

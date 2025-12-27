@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 const TILE_SIZE = 16
+#@onready var camera: Camera2D = $Camera2D
+@export var camera: Camera2D
+var zoom = Vector2(3,3)
 
 func _unhandled_input(event: InputEvent) -> void:
 	var direction := Vector2.ZERO
@@ -26,3 +29,16 @@ func move_on_grid(dir: Vector2) -> void:
 	# Usamos test_move para evitar que el personaje se teletransporte dentro de una pared
 	if not test_move(transform, dir * TILE_SIZE):
 		position = target_position
+		check_collisions()
+
+func check_collisions() -> void:
+	var areas = $Area2D.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group("pelotas"):
+			zoom_out_camera()
+			area.queue_free()
+
+func zoom_out_camera() -> void:
+	zoom -= Vector2( 0.5, 0.5)
+	var tween = create_tween()
+	tween.tween_property(camera, "zoom", zoom, 1.0).set_trans(Tween.TRANS_SINE)
