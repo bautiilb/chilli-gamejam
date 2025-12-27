@@ -1,26 +1,28 @@
 extends CharacterBody2D
 
+const TILE_SIZE = 10
 
-const SPEED = 150.0
-
-
-func _physics_process(delta: float) -> void:
-	var directionx := Input.get_axis("ui_left", "ui_right")
-	var directiony := Input.get_axis("ui_up", "ui_down")
-
-	# 1. Prioridad Horizontal
-	if directionx != 0:
-		velocity.x = directionx * SPEED
-		velocity.y = 0 # Anulamos el movimiento vertical
+func _unhandled_input(event: InputEvent) -> void:
+	var direction := Vector2.ZERO
 	
-	# 2. Si no hay movimiento horizontal, revisamos el vertical
-	elif directiony != 0:
-		velocity.y = directiony * SPEED
-		velocity.x = 0 # Anulamos el movimiento horizontal
-	
-	# 3. Si no se presiona nada, frenamos ambos
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+	# Detectamos la dirección solo cuando se presiona la tecla (just_pressed)
+	if event.is_action_pressed("ui_right"):
+		direction.x = 1
+	elif event.is_action_pressed("ui_left"):
+		direction.x = -1
+	elif event.is_action_pressed("ui_up"):
+		direction.y = -1
+	elif event.is_action_pressed("ui_down"):
+		direction.y = 1
 
-	move_and_slide()
+	# Si hubo movimiento, desplazamos al personaje
+	if direction != Vector2.ZERO:
+		move_on_grid(direction)
+
+func move_on_grid(dir: Vector2) -> void:
+	# Multiplicamos la dirección por el tamaño del tile
+	var target_position = position + (dir * TILE_SIZE)
+	
+	# Usamos test_move para evitar que el personaje se teletransporte dentro de una pared
+	if not test_move(transform, dir * TILE_SIZE):
+		position = target_position
