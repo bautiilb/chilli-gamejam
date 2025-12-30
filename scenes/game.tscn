@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="3_lnu2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -162,3 +163,5 @@ position = Vector2(-24, -7)
 
 [node name="PelotitaVerde2" parent="." groups=["pelotas"] instance=ExtResource("3_lnu2h")]
 position = Vector2(-56, -71)
+[node name="Enemy" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(-8, -33)
