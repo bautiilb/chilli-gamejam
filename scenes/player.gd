@@ -23,22 +23,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		move_on_grid(direction)
 
 func move_on_grid(dir: Vector2) -> void:
-	# Multiplicamos la dirección por el tamaño del tile
-	var target_position = position + (dir * TILE_SIZE)
-	
-	# Usamos test_move para evitar que el personaje se teletransporte dentro de una pared
 	if not test_move(transform, dir * TILE_SIZE):
-		position = target_position
-		check_collisions()
+		position += dir * TILE_SIZE
 
-func check_collisions() -> void:
-	var areas = $Area2D.get_overlapping_areas()
-	for area in areas:
-		if area.is_in_group("pelotas"):
-			zoom_out_camera()
-			area.queue_free()
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("pelotas"):
+		zoom_out_camera()
+		area.queue_free()
 
 func zoom_out_camera() -> void:
-	zoom -= Vector2( 0.5, 0.5)
+	zoom -= Vector2(0.5, 0.5)
 	var tween = create_tween()
 	tween.tween_property(camera, "zoom", zoom, 1.0).set_trans(Tween.TRANS_SINE)
