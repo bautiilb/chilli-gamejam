@@ -5,6 +5,18 @@ const TILE_SIZE = 16
 @export var camera: Camera2D
 var zoom = Vector2(3,3)
 
+var vivo : bool = true
+
+var listaCorazones : Array = [TextureRect]
+var vida = 3
+
+func _ready() -> void:
+	var corazonPadre = $"../barraDeVida/HBoxContainer"
+	for hijo in corazonPadre.get_children():
+		listaCorazones.append(hijo)
+	print(listaCorazones)
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	var direction := Vector2.ZERO
 	
@@ -42,3 +54,4 @@ func zoom_out_camera() -> void:
 	zoom -= Vector2( 0.5, 0.5)
 	var tween = create_tween()
 	tween.tween_property(camera, "zoom", zoom, 1.0).set_trans(Tween.TRANS_SINE)
+	

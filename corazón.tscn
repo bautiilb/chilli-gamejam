@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://gplvrll2j0oh"]
+
+[ext_resource type="Texture2D" uid="uid://b0ojnyeqgrd4i" path="res://assets/sprites/fruit.png" id="1_vfm6b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olevq"]
+atlas = ExtResource("1_vfm6b")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noqeb"]
+atlas = ExtResource("1_vfm6b")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v22xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olevq")
+}],
+"loop": true,
+"name": &"vacio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noqeb")
+}],
+"loop": true,
+"name": &"vida",
+"speed": 5.0
+}]
+
+[node name="corazón" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_v22xa")
+animation = &"vacio"
