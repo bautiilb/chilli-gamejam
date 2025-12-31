@@ -1,21 +1,69 @@
 extends CharacterBody2D
 
 const TILE_SIZE = 16
-#@onready var camera: Camera2D = $Camera2D
 @export var camera: Camera2D
 var zoom = Vector2(3,3)
+var lastPosition : Vector2
+var canTakeDamage : bool = true
 
 var vivo : bool = true
-
-var listaCorazones : Array = [TextureRect]
-var vida = 3
+var health = 3
+# CORRECCIÓN 1: Declarar el array vacío correctamente
+var heartList : Array = [] 
 
 func _ready() -> void:
-	var corazonPadre = $"../barraDeVida/HBoxContainer"
-	for hijo in corazonPadre.get_children():
-		listaCorazones.append(hijo)
-	print(listaCorazones)
+	lastPosition = position
+	
+	# 2. Acceso directo al contenedor (si usas el %UniqueName)
+	var heartParent = %HBoxContainer 
+	
+	# 3. Limpiamos y llenamos el array de una forma más directa
+	heartList.clear()
+	for rect in heartParent.get_children():
+		if rect.get_child_count() > 0:
+			heartList.append(rect.get_child(0))
+	
+	_update_heart_display()
 
+func _take_damage():
+	if not canTakeDamage or health <= 0:
+		return
+
+	# Bloqueamos el daño inmediatamente
+	canTakeDamage = false
+	
+	health -= 1
+	_update_heart_display()
+	
+	# Lo movemos a la posición anterior
+	position = lastPosition
+	
+	# Pequeño parpadeo rojo para feedback visual
+	var tween = create_tween()
+	modulate = Color.RED
+	tween.tween_property(self, "modulate", Color.WHITE, 0.2)
+	
+	# Esperamos un poquito antes de dejar que reciba daño otra vez
+	if health >= 1:
+		await get_tree().create_timer(0.2).timeout
+		canTakeDamage = true
+	else:
+		morir()
+	
+
+func morir():
+	vivo = false
+	get_tree().reload_current_scene()
+
+func _update_heart_display():
+	for i in range(heartList.size()):
+		var heartAnim = heartList[i]
+		# Verificamos que sea un nodo válido antes de darle órdenes
+		if is_instance_valid(heartAnim):
+			if i < health:
+				heartAnim.play("vida") # Asegúrate que se llame "vida" en el SpriteFrames
+			else:
+				heartAnim.play("vacio")
 
 func _unhandled_input(event: InputEvent) -> void:
 	var direction := Vector2.ZERO
@@ -35,6 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		move_on_grid(direction)
 
 func move_on_grid(dir: Vector2) -> void:
+	lastPosition = position
 	# Multiplicamos la dirección por el tamaño del tile
 	var target_position = position + (dir * TILE_SIZE)
 	

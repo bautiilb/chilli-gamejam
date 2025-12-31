@@ -55,6 +55,7 @@ frame = 2
 frame_progress = 0.44262713
 
 [node name="Killzone" parent="." instance=ExtResource("3_c4w8v")]
+collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -7.5)
@@ -75,3 +76,5 @@ target_position = Vector2(0, -16)
 [node name="RayCastD" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
 target_position = Vector2(0, 16)
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
