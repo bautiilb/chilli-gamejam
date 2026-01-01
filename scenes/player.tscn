@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://d1yygmnwdub3f"]
+[gd_scene load_steps=28 format=3 uid="uid://d1yygmnwdub3f"]
 
 [ext_resource type="Texture2D" uid="uid://conhu68bnbcg2" path="res://assets/brackeys_platformer_assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://t806i02vdqfi" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://ronk4rqa4p7y" path="res://scenes/h_box_container.gd" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://bettjxnttm8aa" path="res://corazón.tscn" id="4_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -184,5 +186,40 @@ shape = SubResource("RectangleShape2D_4ni07")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="barraDeVida" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="barraDeVida"]
+unique_name_in_owner = true
+offset_left = 45.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 20.0
+scale = Vector2(5, 5)
+script = ExtResource("3_dqkch")
+
+[node name="corazón" type="TextureRect" parent="barraDeVida/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 0)
+layout_mode = 2
+
+[node name="corazón" parent="barraDeVida/HBoxContainer/corazón" instance=ExtResource("4_qlg0r")]
+animation = &"vida"
+
+[node name="corazón2" type="TextureRect" parent="barraDeVida/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 0)
+layout_mode = 2
+
+[node name="corazón" parent="barraDeVida/HBoxContainer/corazón2" instance=ExtResource("4_qlg0r")]
+animation = &"vida"
+
+[node name="corazón3" type="TextureRect" parent="barraDeVida/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 0)
+layout_mode = 2
+
+[node name="corazón" parent="barraDeVida/HBoxContainer/corazón3" instance=ExtResource("4_qlg0r")]
+animation = &"vida"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

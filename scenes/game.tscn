@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c31ffbvhu220t"]
+[gd_scene load_steps=7 format=3 uid="uid://c31ffbvhu220t"]
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_abc12"]
-[ext_resource type="Script" uid="uid://ronk4rqa4p7y" path="res://scenes/h_box_container.gd" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://bettjxnttm8aa" path="res://corazón.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -171,38 +169,3 @@ position = Vector2(-8, -33)
 
 [node name="Damage" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Player")
-
-[node name="barraDeVida" type="CanvasLayer" parent="."]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="barraDeVida"]
-unique_name_in_owner = true
-offset_left = 45.0
-offset_top = 20.0
-offset_right = 80.0
-offset_bottom = 20.0
-scale = Vector2(5, 5)
-script = ExtResource("5_iywne")
-
-[node name="corazón" type="TextureRect" parent="barraDeVida/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(9, 0)
-layout_mode = 2
-
-[node name="corazón" parent="barraDeVida/HBoxContainer/corazón" instance=ExtResource("6_p57ef")]
-animation = &"vida"
-
-[node name="corazón2" type="TextureRect" parent="barraDeVida/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(9, 0)
-layout_mode = 2
-
-[node name="corazón" parent="barraDeVida/HBoxContainer/corazón2" instance=ExtResource("6_p57ef")]
-animation = &"vida"
-
-[node name="corazón3" type="TextureRect" parent="barraDeVida/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(9, 0)
-layout_mode = 2
-
-[node name="corazón" parent="barraDeVida/HBoxContainer/corazón3" instance=ExtResource("6_p57ef")]
-animation = &"vida"
