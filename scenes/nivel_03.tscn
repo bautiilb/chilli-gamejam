@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://s4nslcytk13y"]
+[gd_scene load_steps=7 format=3 uid="uid://2hemirb8x3fm"]
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_5sl3o"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_mh8ru"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_6j3xf"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_6j3xf"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_ihaaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]

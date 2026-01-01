@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_yuxx0"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_di7vc"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_xdj8u"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_xdj8u"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_v2grs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
@@ -147,6 +147,8 @@ position = Vector2(2, -1)
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_yuxx0")]
 top_level = true
 position = Vector2(-12, -2)
+collision_layer = 3
+collision_mask = 3
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
