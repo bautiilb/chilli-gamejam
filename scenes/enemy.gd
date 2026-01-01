@@ -64,3 +64,8 @@ func move_on_grid() -> void:
 	var tween = create_tween()
 	# El tiempo del tween (0.3) debe ser menor al tiempo de espera (2.0)
 	tween.tween_property(self, "position", target_pos, 0.3).set_trans(Tween.TRANS_SINE)
+
+
+func _on_killzone_body_entered(body):
+	if body.has_method("_take_damage"):
+		body._take_damage()
