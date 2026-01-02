@@ -98,9 +98,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func zoom_out_camera() -> void:
 	if zoom == Vector2(3,3):
-		zoom -= Vector2( 0.4, 0.4)
-	elif zoom == Vector2(2.6,2.6):
-		zoom = Vector2( 2, 2)
+		zoom = Vector2(2.3,2.3)
+	elif zoom == Vector2(2.3,2.3):
+		zoom = Vector2( 1.6, 1.6)
 	var tween = create_tween()
 	tween.tween_property(camera, "zoom", zoom, 1.0).set_trans(Tween.TRANS_SINE)
 	
