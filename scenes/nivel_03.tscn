@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_5sl3o"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_mh8ru"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_6j3xf"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_6j3xf"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_ihaaj"]
 [ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_mh8ru"]
 
@@ -147,7 +147,7 @@ position = Vector2(2, -1)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_5sl3o")]
 top_level = true
-position = Vector2(-12, -2)
+position = Vector2(-11, -2)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -168,19 +168,19 @@ position = Vector2(-80, 72)
 position = Vector2(33, -120)
 
 [node name="Enemy" parent="." instance=ExtResource("4_ihaaj")]
-position = Vector2(-174, 96)
+position = Vector2(-173, 93)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_ihaaj")]
 position = Vector2(176, 29)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_ihaaj")]
-position = Vector2(-126, -4)
+position = Vector2(-125, -2)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_ihaaj")]
-position = Vector2(17, 80)
+position = Vector2(18, 78)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_ihaaj")]
-position = Vector2(112, -131)
+position = Vector2(114, -131)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mh8ru")
@@ -189,3 +189,8 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
+[node name="Enemy6" parent="." instance=ExtResource("4_ihaaj")]
+position = Vector2(-30, 189)
+
+[node name="Enemy7" parent="." instance=ExtResource("4_ihaaj")]
+position = Vector2(-157, -130)

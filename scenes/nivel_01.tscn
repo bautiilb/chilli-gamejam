@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_idmbi"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_ftixv"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_rm0sc"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_rm0sc"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_rb4s4"]
 [ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_ftixv"]
 
@@ -147,7 +147,7 @@ position = Vector2(7, 8)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_idmbi")]
 top_level = true
-position = Vector2(-1, 7)
+position = Vector2(0, 7)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -167,16 +167,19 @@ position = Vector2(136, 88)
 position = Vector2(24, -54)
 
 [node name="Enemy" parent="." instance=ExtResource("4_rb4s4")]
-position = Vector2(-105, 32)
+position = Vector2(-104, 30)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_rb4s4")]
-position = Vector2(137, -114)
+position = Vector2(136, -115)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_rb4s4")]
-position = Vector2(59, 13)
+position = Vector2(57, 13)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_rb4s4")]
-position = Vector2(-198, 76)
+position = Vector2(-199, 77)
+
+[node name="Enemy5" parent="." instance=ExtResource("4_rb4s4")]
+position = Vector2(-136, 141)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ftixv")
@@ -184,3 +187,9 @@ volume_db = -20.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="Enemy6" parent="." instance=ExtResource("4_rb4s4")]
+position = Vector2(-136, -114)
+
+[node name="Enemy7" parent="." instance=ExtResource("4_rb4s4")]
+position = Vector2(89, 189)

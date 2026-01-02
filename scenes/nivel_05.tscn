@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_ebq6j"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_7ef8s"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_7ev3x"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_7ev3x"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_cevq1"]
 [ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_7ef8s"]
 
@@ -168,19 +168,19 @@ position = Vector2(-48, 57)
 position = Vector2(17, 104)
 
 [node name="Enemy" parent="." instance=ExtResource("4_cevq1")]
-position = Vector2(-145, 111)
+position = Vector2(-143, 110)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_cevq1")]
-position = Vector2(114, -80)
+position = Vector2(113, -82)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_cevq1")]
-position = Vector2(-46, -47)
+position = Vector2(-46, -50)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_cevq1")]
 position = Vector2(17, 78)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_cevq1")]
-position = Vector2(-256, 15)
+position = Vector2(2, 157)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7ef8s")
@@ -188,3 +188,6 @@ volume_db = -20.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="Enemy6" parent="." instance=ExtResource("4_cevq1")]
+position = Vector2(-96, -179)

@@ -168,16 +168,16 @@ position = Vector2(-48, 72)
 position = Vector2(-94, -103)
 
 [node name="Enemy" parent="." instance=ExtResource("4_j5elm")]
-position = Vector2(-143, 108)
+position = Vector2(-143, 107)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_j5elm")]
-position = Vector2(64, -100)
+position = Vector2(65, -99)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_j5elm")]
-position = Vector2(-47, -52)
+position = Vector2(-47, -51)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_j5elm")]
-position = Vector2(48, -35)
+position = Vector2(49, -34)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_j5elm")]
 position = Vector2(-207, -35)
@@ -188,3 +188,6 @@ volume_db = -20.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="Enemy6" parent="." instance=ExtResource("4_j5elm")]
+position = Vector2(65, 189)

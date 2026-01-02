@@ -41,7 +41,6 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1ltt"]
-
 size = Vector2(4, 7)
 
 [node name="Enemy" type="Node2D"]
@@ -57,13 +56,11 @@ frame = 2
 frame_progress = 0.44262713
 
 [node name="Killzone" parent="." instance=ExtResource("3_c4w8v")]
-
 collision_layer = 4
 collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -6)
-
 shape = SubResource("RectangleShape2D_e1ltt")
 
 [node name="RayCastR" type="RayCast2D" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_yuxx0"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_di7vc"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_xdj8u"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_xdj8u"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_v2grs"]
 [ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_di7vc"]
 
@@ -147,7 +147,7 @@ position = Vector2(7, 8)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_yuxx0")]
 top_level = true
-position = Vector2(-8, 7)
+position = Vector2(-7, 7)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -171,16 +171,16 @@ position = Vector2(-127, -87)
 position = Vector2(-143, 109)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_v2grs")]
-position = Vector2(114, -86)
+position = Vector2(114, -84)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_v2grs")]
-position = Vector2(-48, -53)
+position = Vector2(-47, -50)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_v2grs")]
 position = Vector2(65, 76)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_v2grs")]
-position = Vector2(-191, -99)
+position = Vector2(-190, -100)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_di7vc")
@@ -189,3 +189,8 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
+[node name="Enemy6" parent="." instance=ExtResource("4_v2grs")]
+position = Vector2(-15, -179)
+
+[node name="Enemy7" parent="." instance=ExtResource("4_v2grs")]
+position = Vector2(-111, 189)
