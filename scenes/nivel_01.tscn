@@ -143,7 +143,7 @@ texture = ExtResource("2_ftixv")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lnu2h")
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 position = Vector2(7, 8)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") groups=["jugador"] instance=ExtResource("1_idmbi")]
@@ -194,12 +194,13 @@ position = Vector2(-136, -114)
 
 [node name="Enemy7" parent="." instance=ExtResource("4_rb4s4")]
 position = Vector2(89, 189)
+
 [node name="Meta" parent="." instance=ExtResource("6_rb4s4")]
 position = Vector2(-158, 210)
 send_to_level = "uid://b0w0pigosxssj"
 
 [node name="CollisionShape2D" parent="Meta" index="0"]
-position = Vector2(-2, -14)
+position = Vector2(-3, -10)
 
 [connection signal="body_entered" from="Meta" to="Meta" method="_on_body_entered"]
 
