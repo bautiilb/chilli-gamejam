@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://da717etmcpd4p"]
+[gd_scene load_steps=9 format=3 uid="uid://da717etmcpd4p"]
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_30b4h"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_6xklr"]
 [ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_r5r3t"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_j5elm"]
 [ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_6xklr"]
+[ext_resource type="PackedScene" uid="uid://0m8rdqurekew" path="res://meta.tscn" id="6_r5r3t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_6xklr")
@@ -191,3 +192,13 @@ parameters/looping = true
 
 [node name="Enemy6" parent="." instance=ExtResource("4_j5elm")]
 position = Vector2(65, 189)
+[node name="Meta" parent="." instance=ExtResource("6_r5r3t")]
+position = Vector2(-158, 241)
+send_to_level = "uid://600c6bskwa4g"
+
+[node name="CollisionShape2D" parent="Meta" index="0"]
+position = Vector2(279, -41)
+
+[connection signal="body_entered" from="Meta" to="Meta" method="_on_body_entered"]
+
+[editable path="Meta"]

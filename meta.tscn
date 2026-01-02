@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0m8rdqurekew"]
+
+[ext_resource type="Script" uid="uid://cjoyw5diyqnre" path="res://area_2d.gd" id="1_0ull6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75i0q"]
+size = Vector2(5.9375, 25.25)
+
+[node name="Meta" type="Area2D"]
+script = ExtResource("1_0ull6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_75i0q")

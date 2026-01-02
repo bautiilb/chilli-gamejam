@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2dnv2sh7h38d"]
+[gd_scene load_steps=9 format=3 uid="uid://b2dnv2sh7h38d"]
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_idmbi"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_ftixv"]
 [ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_rm0sc"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_rb4s4"]
 [ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_ftixv"]
+[ext_resource type="PackedScene" uid="uid://0m8rdqurekew" path="res://meta.tscn" id="6_rb4s4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_ftixv")
@@ -145,7 +146,7 @@ sources/1 = SubResource("TileSetAtlasSource_lnu2h")
 [node name="Game" type="Node2D"]
 position = Vector2(7, 8)
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_idmbi")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera") groups=["jugador"] instance=ExtResource("1_idmbi")]
 top_level = true
 position = Vector2(0, 7)
 camera = NodePath("../Camera2D")
@@ -193,3 +194,13 @@ position = Vector2(-136, -114)
 
 [node name="Enemy7" parent="." instance=ExtResource("4_rb4s4")]
 position = Vector2(89, 189)
+[node name="Meta" parent="." instance=ExtResource("6_rb4s4")]
+position = Vector2(-158, 210)
+send_to_level = "uid://b0w0pigosxssj"
+
+[node name="CollisionShape2D" parent="Meta" index="0"]
+position = Vector2(-2, -14)
+
+[connection signal="body_entered" from="Meta" to="Meta" method="_on_body_entered"]
+
+[editable path="Meta"]
