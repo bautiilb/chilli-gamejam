@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://da7h14mwoen8r"
+path="res://.godot/imported/Sketchbook 2025-12-11_BREAKDOWN.ogg-019cb064e0dce648ef17b47b64fb9bd0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg"
+dest_files=["res://.godot/imported/Sketchbook 2025-12-11_BREAKDOWN.ogg-019cb064e0dce648ef17b47b64fb9bd0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

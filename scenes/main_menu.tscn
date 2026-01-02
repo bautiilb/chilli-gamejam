@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuh3q7pl6soui"]
+
+[ext_resource type="Script" uid="uid://buoi7arp3arrv" path="res://main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://r07awwpo4ygn" path="res://assets/mainmenu.png" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://d3uuvoj5arrj" path="res://assets/music/Sketchbook 2025-12-03 LOOP.ogg" id="3_bqqt6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_bqqt6")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 116.0
+offset_right = -1.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Volume" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume                          "
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bqqt6")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

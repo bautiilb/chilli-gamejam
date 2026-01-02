@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci1rxbh2sxmt4"]
+[gd_scene load_steps=8 format=3 uid="uid://ci1rxbh2sxmt4"]
 
 [ext_resource type="PackedScene" uid="uid://d1yygmnwdub3f" path="res://scenes/player.tscn" id="1_165w0"]
 [ext_resource type="Texture2D" uid="uid://hpftuct8nfo3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_xcujj"]
-[ext_resource type="PackedScene" uid="uid://cyv4hqej22qif" path="res://scenes/Pelota.tscn" id="3_mx6wp"]
+[ext_resource type="PackedScene" path="res://scenes/Pelota.tscn" id="3_mx6wp"]
 [ext_resource type="PackedScene" uid="uid://dgbrqcdp1535k" path="res://scenes/enemy.tscn" id="4_vthgn"]
+[ext_resource type="AudioStream" uid="uid://da7h14mwoen8r" path="res://assets/music/Sketchbook 2025-12-11_BREAKDOWN.ogg" id="5_xcujj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_xcujj")
@@ -180,3 +181,10 @@ position = Vector2(66, 80)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_vthgn")]
 position = Vector2(-223, -33)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xcujj")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
