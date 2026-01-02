@@ -15,9 +15,10 @@ script = ExtResource("1_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 700.0
+offset_bottom = 700.0
 texture = ExtResource("2_bqqt6")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
