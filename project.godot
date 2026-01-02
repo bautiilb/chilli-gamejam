@@ -15,6 +15,11 @@ run/main_scene="uid://cuh3q7pl6soui"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=700
+window/size/viewport_height=700
+
 [layer_names]
 
 2d_physics/layer_1="Paredes"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://conhu68bnbcg2" path="res://assets/brackeys_platformer_assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://t806i02vdqfi" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://ronk4rqa4p7y" path="res://scenes/h_box_container.gd" id="3_dqkch"]
+[ext_resource type="Script" path="res://scenes/h_box_container.gd" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://bettjxnttm8aa" path="res://corazón.tscn" id="4_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
